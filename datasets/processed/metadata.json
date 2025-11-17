@@ -1,0 +1,121 @@
+{
+  "dataset_info": {
+    "source": "Azure Functions Invocation Trace 2021",
+    "total_invocations": 1807067,
+    "unique_apps": 119,
+    "unique_functions": 424,
+    "time_range": {
+      "start": "2021-01-31 00:00:00.066823959",
+      "end": "2021-02-13 23:59:59.694463969",
+      "days": 13
+    }
+  },
+  "split_info": {
+    "train_samples": 1264946,
+    "val_samples": 271060,
+    "test_samples": 271061,
+    "split_ratio": "70/15/15",
+    "split_method": "temporal"
+  },
+  "features": {
+    "total_features": 47,
+    "temporal": [
+      "hour",
+      "day_of_week",
+      "is_weekend",
+      "is_business_hours"
+    ],
+    "workload": [
+      "inter_arrival_time_ms",
+      "invocation_rate",
+      "is_bursty"
+    ],
+    "performance": [
+      "duration",
+      "total_latency_ms",
+      "cold_start_latency_ms",
+      "is_cold_start",
+      "sla_violation"
+    ],
+    "cost": [
+      "compute_cost",
+      "request_cost",
+      "data_transfer_cost",
+      "total_cost",
+      "cost_per_ms"
+    ],
+    "carbon": [
+      "carbon_intensity",
+      "energy_wh",
+      "operational_carbon_g",
+      "embodied_carbon_g",
+      "carbon_footprint_g",
+      "carbon_per_ms"
+    ],
+    "cloud": [
+      "cloud_provider",
+      "region",
+      "memory_mb"
+    ],
+    "historical": [
+      "avg_duration",
+      "std_duration",
+      "min_duration",
+      "max_duration",
+      "avg_cost",
+      "cold_start_rate",
+      "avg_carbon"
+    ],
+    "rewards": [
+      "cost_reward",
+      "performance_reward",
+      "carbon_reward",
+      "sla_penalty",
+      "total_reward"
+    ],
+    "scaled_features": [
+      "duration",
+      "memory_mb",
+      "total_latency_ms",
+      "invocation_rate",
+      "total_cost",
+      "carbon_footprint_g",
+      "avg_duration",
+      "std_duration",
+      "cost_per_ms",
+      "carbon_per_ms",
+      "inter_arrival_time_ms"
+    ]
+  },
+  "drl_config": {
+    "strategic_state_dim": 10,
+    "tactical_state_dim": 7,
+    "operational_state_dim": 5,
+    "strategic_actions": 3,
+    "tactical_actions": 24,
+    "operational_actions": 3,
+    "reward_weights": {
+      "alpha": 0.4,
+      "beta": 0.4,
+      "gamma": 0.2
+    },
+    "sla_penalty": -5.0
+  },
+  "statistics": {
+    "avg_duration_ms": 9.500214761227177,
+    "median_duration_ms": 0.0,
+    "p95_duration_ms": 50.308923884514314,
+    "p99_duration_ms": 203.69028871391075,
+    "cold_start_rate": 0.007097689238971217,
+    "sla_violation_rate": 0.004918467328549523,
+    "avg_cost_usd": 6971.588532389753,
+    "avg_carbon_g": 15.530637003985216,
+    "avg_reward": 0.9529151088074675
+  },
+  "processing_info": {
+    "scaler": "RobustScaler",
+    "cold_start_threshold_ms": 600000,
+    "sla_threshold_ms": 1000,
+    "processing_date": "2025-11-04 07:40:33"
+  }
+}

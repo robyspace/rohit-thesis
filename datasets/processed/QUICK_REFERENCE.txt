@@ -1,0 +1,94 @@
+
+================================================================================
+QUICK REFERENCE GUIDE - Azure Functions 2021 Dataset
+================================================================================
+
+DATASET STATISTICS:
+-------------------
+Total Invocations:     1,807,067
+Unique Applications:   119
+Unique Functions:      424
+Time Span:             13 days
+Avg Duration:          9.50 ms
+Cold Start Rate:       0.71%
+SLA Violation Rate:    0.49%
+
+DATASETS CREATED:
+-----------------
+1. train_data.parquet / train_data.csv (1,264,946 samples)
+2. val_data.parquet / val_data.csv (271,060 samples)
+3. test_data.parquet / test_data.csv (271,061 samples)
+4. drl_states_actions.npz (DRL state/action representations)
+5. application_profiles.csv (app-level statistics)
+6. robust_scaler.pkl (feature scaler for inference)
+7. metadata.json (complete dataset documentation)
+
+DRL STATE SPACES:
+-----------------
+Strategic Layer (Cloud Selection):
+  • State dimension: 10
+  • Features: hour, day_of_week, is_weekend, is_business_hours, invocation_rate, is_bursty, avg_duration, avg_cost, avg_carbon, memory_mb
+  • Action space: 3 actions
+
+Tactical Layer (Function Placement):
+  • State dimension: 7
+  • Features: duration, memory_mb, invocation_rate, cold_start_rate, avg_duration, std_duration, is_bursty
+  • Action space: 24 actions
+
+Operational Layer (Resource Allocation):
+  • State dimension: 5
+  • Features: hour, invocation_rate, memory_mb, duration, total_latency_ms
+  • Action space: 3 actions
+
+REWARD FUNCTION:
+----------------
+Multi-objective reward = α×cost + β×performance + γ×carbon + SLA_penalty
+  • α (cost weight): 0.4
+  • β (performance weight): 0.4
+  • γ (carbon weight): 0.2
+  • SLA penalty: -5.0 for violations
+  • Reward range: [-4.50, 1.00]
+
+USAGE EXAMPLE:
+--------------
+import pandas as pd
+import numpy as np
+import pickle
+
+# Load training data
+train_df = pd.read_parquet('/content/drive/MyDrive/mythesis/rohit-thesis/datasets/processed/train_data.parquet')
+
+# Load DRL states/actions
+drl_data = np.load('/content/drive/MyDrive/mythesis/rohit-thesis/datasets/processed/drl_states_actions.npz')
+strategic_states = drl_data['strategic_states']
+action_spaces = drl_data['action_spaces'].item()
+
+# Load scaler for inference
+with open('/content/drive/MyDrive/mythesis/rohit-thesis/datasets/processed/robust_scaler.pkl', 'rb') as f:
+    scaler = pickle.load(f)
+
+# Access metadata
+import json
+with open('/content/drive/MyDrive/mythesis/rohit-thesis/datasets/processed/metadata.json', 'r') as f:
+    metadata = json.load(f)
+
+KEY FEATURES:
+-------------
+• Temporal: hour, day_of_week, is_weekend, is_business_hours
+• Workload: invocation_rate, is_bursty, inter_arrival_time_ms
+• Performance: duration, total_latency_ms, is_cold_start, sla_violation
+• Cost: compute_cost, data_transfer_cost, total_cost, cost_per_ms
+• Carbon: carbon_footprint_g, carbon_intensity, carbon_per_ms
+• Historical: avg_duration, cold_start_rate, avg_cost, avg_carbon
+
+OUTPUT LOCATION: /content/drive/MyDrive/mythesis/rohit-thesis/datasets/processed/
+
+NEXT STEPS (Phase 2):
+---------------------
+[ ] Implement DQN agent for strategic cloud selection
+[ ] Implement PPO for tactical function placement
+[ ] Implement LSTM predictor for operational resource allocation
+[ ] Train models using prepared datasets
+[ ] Evaluate multi-objective optimization performance
+
+================================================================================
