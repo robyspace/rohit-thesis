@@ -4,7 +4,9 @@
 
 **Research Topic:** Multi-Objective Optimization for Multi-Cloud Serverless Orchestration using Hierarchical Deep Reinforcement Learning
 
-**Status:** ✅ **ALL 4 PHASES COMPLETE**
+**Status:** Model Training Complete 
+
+
 
 ---
 
@@ -44,7 +46,7 @@ This repository contains the complete implementation of a hierarchical Deep Rein
 
 ---
 
-## 📊 Dataset
+## Dataset
 
 **Source:** Azure Functions Invocation Trace 2021
 
@@ -67,7 +69,7 @@ This repository contains the complete implementation of a hierarchical Deep Rein
 
 ## 🚀 Implementation Phases
 
-### ✅ Phase 1: Dataset Preparation
+### Phase 1: Dataset Preparation
 
 **File:** `1_Dataset_Preparation.ipynb`
 
@@ -89,7 +91,7 @@ This repository contains the complete implementation of a hierarchical Deep Rein
 
 ---
 
-### ✅ Phase 2: DQN Strategic Cloud Selection
+### Phase 2: DQN Strategic Cloud Selection
 
 **File:** `Phase 2_DQN_Strategic_Layer.ipynb`
 
@@ -114,7 +116,7 @@ This repository contains the complete implementation of a hierarchical Deep Rein
 
 ---
 
-### ✅ Phase 3: PPO Tactical Function Placement
+### Phase 3: PPO Tactical Function Placement
 
 **File:** `Phase_3_PPO_Tactical_Layer.ipynb`
 
@@ -148,7 +150,7 @@ This repository contains the complete implementation of a hierarchical Deep Rein
 
 ---
 
-### ✅ Phase 4: LSTM Operational Resource Allocation
+### Phase 4: LSTM Operational Resource Allocation
 
 **File:** `Phase_4_LSTM_Operational_Layer.ipynb`
 
@@ -188,7 +190,7 @@ This repository contains the complete implementation of a hierarchical Deep Rein
 
 ---
 
-## 📈 Complete Framework Results
+## Complete Framework Results
 
 ### Ablation Studies
 
@@ -293,7 +295,7 @@ rohit-thesis/
 
 ---
 
-## 🎓 Thesis Structure Recommendations
+## Thesis Structure Recommendations
 
 ### Chapter 1: Introduction
 - Research motivation and problem statement
