@@ -1,0 +1,29 @@
+{
+  "strategic_state": {
+    "hour": 14,
+    "day_of_week": 2,
+    "is_weekend": 0,
+    "is_business_hours": 1,
+    "invocation_rate": 25.5,
+    "is_bursty": 0,
+    "avg_duration": 150.2,
+    "avg_cost": 0.0012,
+    "avg_carbon": 0.45,
+    "memory_mb": 512
+  },
+  "tactical_state": {
+    "duration": 145.3,
+    "memory_mb": 512,
+    "invocation_rate": 25.5,
+    "cold_start_rate": 0.15,
+    "avg_duration": 150.2,
+    "std_duration": 12.5,
+    "is_bursty": 0
+  },
+  "app_profile": {
+    "cold_start_rate": 0.15,
+    "sla_violation_rate": 0.05,
+    "avg_invocation_rate": 25.5,
+    "workload_type": "standard"
+  }
+}

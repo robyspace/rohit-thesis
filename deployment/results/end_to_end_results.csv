@@ -1,0 +1,3 @@
+Test Type,Avg Latency (ms),P95 Latency (ms),P99 Latency (ms),Success Rate (%),Throughput (req/s)
+Sequential,362.03,372.13,372.17,38.0,N/A
+Concurrent,365.89,379.72,387.05,34.0,27.14

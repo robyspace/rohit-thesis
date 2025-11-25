@@ -1,0 +1,5 @@
+Model,MAE,RMSE,R² Score,Avg Latency (ms),P99 Latency (ms)
+LSTM (Ours),1.7953,19.6345,-0.197,0.24,0.26
+Simple Moving Average,1.8367,20.8973,-0.096,0.00,0.00
+Linear Regression,1.9479,17.3115,0.208,0.06,0.06
+ARIMA (sample),3.1865,11.8834,-0.577,36.26,57.24

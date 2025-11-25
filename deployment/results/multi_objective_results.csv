@@ -1,0 +1,6 @@
+Strategy,Avg Cost ($),P99 Latency (ms),Total Carbon (gCO2e),Multi-Obj Score,Decision Time (ms)
+Hierarchical DRL (Ours),0.000001,159.38,0.01,0.3195,0.20
+Cost-Only,0.000000,150.00,0.00,0.3002,0.00
+Performance-Only,0.000001,80.00,0.02,0.1606,0.00
+Carbon-Only,0.000000,187.50,0.00,0.3752,0.00
+Random,0.000001,234.38,0.02,0.4697,0.01

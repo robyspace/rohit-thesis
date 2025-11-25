@@ -1,0 +1,74 @@
+================================================================================
+EXPERIMENT 1: COST PREDICTION ACCURACY
+================================================================================
+
+Device: cpu
+
+[1/5] Loading test data...
+Warning: No pre-split test data found. Creating test sequences...
+  Created 10000 test sequences from dataset
+  Test sequences: (10000, 12, 5)
+  Test targets: (10000, 3)
+
+[2/5] Loading LSTM model...
+  ✓ LSTM model loaded
+
+[3/5] Initializing baseline models...
+  ✓ Baselines initialized
+
+[4/5] Evaluating models...
+
+Evaluating LSTM (Ours)...
+  MAE: 1.7953
+  RMSE: 19.6345
+  R² Score: -0.1972
+  Avg Latency: 0.24 ms
+  P99 Latency: 0.26 ms
+
+Evaluating Simple Moving Average...
+  MAE: 1.8367
+  RMSE: 20.8973
+  R² Score: -0.0963
+  Avg Latency: 0.00 ms
+  P99 Latency: 0.00 ms
+
+Evaluating Linear Regression...
+  MAE: 1.9479
+  RMSE: 17.3115
+  R² Score: 0.2079
+  Avg Latency: 0.06 ms
+  P99 Latency: 0.06 ms
+
+Evaluating ARIMA (sample)...
+  MAE: 3.1865
+  RMSE: 11.8834
+  R² Score: -0.5766
+  Avg Latency: 36.26 ms
+  P99 Latency: 57.24 ms
+
+[5/5] Creating visualizations...
+
+Visualization saved to: ../results/cost_prediction_comparison.png
+
+Results table saved to: ../results/cost_prediction_results.csv
+
+================================================================================
+EXPERIMENT 1: COST PREDICTION ACCURACY RESULTS
+================================================================================
+                Model    MAE    RMSE R² Score Avg Latency (ms) P99 Latency (ms)
+          LSTM (Ours) 1.7953 19.6345   -0.197             0.24             0.26
+Simple Moving Average 1.8367 20.8973   -0.096             0.00             0.00
+    Linear Regression 1.9479 17.3115    0.208             0.06             0.06
+       ARIMA (sample) 3.1865 11.8834   -0.577            36.26            57.24
+================================================================================
+
+================================================================================
+LSTM IMPROVEMENTS OVER BASELINES
+================================================================================
+  vs Simple Moving Average: +2.3% MAE reduction
+  vs Linear Regression: +7.8% MAE reduction
+  vs ARIMA (sample): +43.7% MAE reduction
+
+================================================================================
+✓ Experiment 1 complete!
+================================================================================

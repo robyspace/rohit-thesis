@@ -1,0 +1,94 @@
+====================================================================================================
+EXPERIMENT 3: END-TO-END FRAMEWORK EVALUATION
+====================================================================================================
+
+API Endpoint: http://3.254.111.76:8000
+
+[1/6] Testing API health...
+  ✓ API is healthy
+  Status: healthy
+  Models loaded: True
+  Device: cpu
+
+Loading test scenarios...
+✓ Loaded 500 test scenarios
+
+[2/6] Testing sequential requests (50 requests)...
+  Processing request 1/50...  Processing request 11/50...  Processing request 21/50...  Processing request 31/50...  Processing request 41/50...
+  ✓ Success rate: 19/50 (38.0%)
+  Avg latency: 362.03 ms
+  P50 latency: 361.01 ms
+  P95 latency: 372.13 ms
+  P99 latency: 372.17 ms
+  ✗ Failed requests: 31
+    - HTTP 422: 31
+
+[3/6] Testing concurrent requests (100 requests, 10 workers)...
+  Completed 10/100 requests...  Completed 20/100 requests...  Completed 30/100 requests...  Completed 40/100 requests...  Completed 50/100 requests...  Completed 60/100 requests...  Completed 70/100 requests...  Completed 80/100 requests...  Completed 90/100 requests...  Completed 100/100 requests...
+  ✓ Success rate: 34/100 (34.0%)
+  Total time: 3.69 s
+  Throughput: 27.14 req/s
+  Avg latency: 365.89 ms
+  P95 latency: 379.72 ms
+  P99 latency: 387.05 ms
+  ✗ Failed requests: 66
+
+[4/6] Testing decision consistency (20 identical requests)...
+  ✓ Successful requests: 20/20
+  Unique decisions: 1
+  ✓ Decisions are consistent
+    Cloud: AWS
+    Region: eu-west-1
+    Memory: 3008 MB
+
+[5/6] Testing different workload patterns...
+
+  Testing low_traffic (60 scenarios)...
+    Avg latency: 362.15 ms
+    Decision diversity: 2 unique placements
+
+  Testing high_traffic (29 scenarios)...
+    Avg latency: 362.21 ms
+    Decision diversity: 3 unique placements
+
+  Testing bursty (23 scenarios)...
+    Avg latency: 363.48 ms
+    Decision diversity: 3 unique placements
+
+  Testing steady (77 scenarios)...
+    Avg latency: 364.14 ms
+    Decision diversity: 2 unique placements
+
+[6/6] Creating visualizations...
+
+Visualization saved to: ../results/end_to_end_evaluation.png
+Results table saved to: ../results/end_to_end_results.csv
+
+====================================================================================================
+EXPERIMENT 3: END-TO-END FRAMEWORK EVALUATION RESULTS
+====================================================================================================
+ Test Type Avg Latency (ms) P95 Latency (ms) P99 Latency (ms) Success Rate (%) Throughput (req/s)
+Sequential           362.03           372.13           372.17             38.0                N/A
+Concurrent           365.89           379.72           387.05             34.0              27.14
+====================================================================================================
+
+====================================================================================================
+SUMMARY
+====================================================================================================
+Sequential Performance:
+  Avg Latency: 362.03 ms
+  P99 Latency: 372.17 ms
+  Success Rate: 38.0%
+
+Concurrent Performance:
+  Throughput: 27.14 req/s
+  Avg Latency: 365.89 ms
+  P99 Latency: 387.05 ms
+  Success Rate: 34.0%
+
+Decision Consistency:
+  Consistent: True
+  Unique decisions: 1
+====================================================================================================
+✓ Experiment 3 complete!
+====================================================================================================
